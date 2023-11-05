@@ -1,0 +1,53 @@
+# The following project utilizes the Superstore data
+CREATE TABLE ecom_data (
+    user_id VARCHAR(50),
+    session_duration INT,
+    purchase_flag BIT,
+    amount_spent DECIMAL(10, 2),
+    item_name VARCHAR(50)
+);
+
+INSERT INTO ecom_data (user_id, session_duration, purchase_flag, amount_spent, item_name)
+VALUES
+    ('aBcDeF123456', 3, 1, 25.50, 'Wireless Earbuds'),
+    ('gHiJkL789012', 4, 0, 0.00, NULL),
+    ('mNoPqR345678', 6, 1, 75.20, 'Smartphone Case'),
+    ('sTuVwX901234', 2, 0, 0.00, NULL),
+    ('yZaBcD567890', 5, 1, 10.75, 'Portable Charger'),
+    ('eFgHiJ123456', 4, 0, 0.00, NULL),
+    ('kLmNoP789012', 1, 1, 50.00, 'Bluetooth Speaker'),
+    ('qRsTuV345678', 2, 0, 0.00, NULL),
+    ('wXyZaB901234', 3, 1, 20.90, 'Fitness Tracker'),
+    ('zN53qR345321', 6, 1, 75.20, 'Smartphone Case'),
+    ('QrSFgH561764', 1, 1, 50.00, 'Bluetooth Speaker'),
+    ('cDeFgH567890', 4, 1, 150.75, 'Smartwatch');
+
+# ordered items by price
+SELECT item_name, price 
+FROM superstore
+ORDER BY item_name, price;
+
+# statistic on item prices
+SELECT SUM(price), item_name
+FROM superstore
+GROUP BY item_name;
+
+SELECT AVG(price)
+FROM superstore;
+
+SELECT MAX(price), item_name
+FROM superstore;
+
+SELECT MIN (price), item_name
+FROM superstore;
+
+SELECT COUNT(*), category
+FROM superstore
+GROUP BY category;
+
+# price of items in 'Kitchen Supplies'
+SELECT AVG(price)
+FROM superstore
+WHERE category = 'Kitchen Supplies'
+
+
