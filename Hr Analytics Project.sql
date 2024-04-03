@@ -1,3 +1,5 @@
+
+
 -- 1 Which three departments had the highest satification scores, and which three had the lowest satification scores?
 SELECT 
 	dept,
